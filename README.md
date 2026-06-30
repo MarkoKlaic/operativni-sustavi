@@ -107,7 +107,7 @@
 
 # Docker
 
-## Build Docker slike
+## Izrada Docker slike
 
 ```bash
 docker build -t tsp-solver .
@@ -116,8 +116,10 @@ docker build -t tsp-solver .
 ## Pokretanje Docker kontejnera
 
 ```bash
-docker run --rm -it tsp-solver
+docker run --rm -it -e DISPLAY=host.docker.internal:0 tsp-solver
 ```
+
+> **Napomena:** Budući da aplikacija koristi PyQt grafičko sučelje, za prikaz GUI-ja iz Docker kontejnera potrebno je imati odgovarajuće podešen X11/display server na host računalu.
 
 # Snap
 
