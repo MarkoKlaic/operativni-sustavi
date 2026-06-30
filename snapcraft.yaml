@@ -1,0 +1,48 @@
+name: tsp-solver
+base: core24
+version: '1.0'
+
+summary: TSP Solver
+
+description: |
+  GUI aplikacija za rješavanje problema trgovačkog putnika.
+
+grade: stable
+confinement: devmode
+
+apps:
+  tsp-solver:
+    command: bin/tsp-solver.sh
+    plugs:
+      - network
+      - desktop
+      - desktop-legacy
+      - x11
+      - wayland
+      - home
+
+parts:
+  tsp:
+    plugin: python
+    source: .
+    python-requirements:
+      - requirements.txt
+    stage-packages:
+      - libgl1
+      - libx11-6
+      - libxcb1
+      - libxkbcommon-x11-0
+      - libfontconfig1
+      - libxcb-render0
+      - libxcb-icccm4
+      - libxcb-image0
+      - libxcb-keysyms1
+      - libxcb-render-util0
+      - libxcb-shape0
+      - libxcb-xinerama0
+
+  run-script:
+    plugin: dump
+    source: .
+    organize:
+      tsp-solver.sh: bin/tsp-solver.sh

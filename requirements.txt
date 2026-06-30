@@ -1,0 +1,8 @@
+# Requires-Python: >=3.8
+# Python runtime used for development (recommended): 3.13.5
+# Runtime dependencies
+PyQt5>=5.15.4
+numpy>=1.21
+
+
+# To install runtime only: `pip install -r requirements.txt` (black/mypy are optional)
